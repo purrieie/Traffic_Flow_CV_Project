@@ -22,8 +22,8 @@ The project relies on **Background Subtraction** to separate moving objects (car
 * `main.py`: The core script containing the image processing logic.
 * `traffic_video.mp4`: Input video file for testing.
 * `output_processed.mp4`: The final output video with detection boxes.
-* `screenshots/`: Contains sample output images.
-* `screen_recordings/`: Contains a video demo of the project running.
+* `detection_1.png` `detection_2.png` : Contains sample output images.
+* `screen_recording/`: Contains a video demo of the project running.
 
 ## How to Run
 1.  Clone this repository.
