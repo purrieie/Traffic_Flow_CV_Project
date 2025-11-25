@@ -1,30 +1,43 @@
-# Traffic_Flow_CV_Project
-Smart City Traffic Flow Detector
-Project Description
-An automated computer vision system designed to monitor traffic density for smart city applications. The system processes video feeds to detect moving vehicles, ignoring static backgrounds and environmental noise.
+# Smart City Traffic Flow Detector
 
-Domain
-Transportation & Logistics / Smart Cities
+## Overview
+This project is a Computer Vision application designed to automate traffic monitoring. It uses image processing techniques to detect moving vehicles in a video feed and counts them in real-time. This falls under the domain of **Transportation & Logistics** and **Smart City Automation**.
 
-Technology Stack
-Language: Python
+## Problem Statement
+Manual traffic counting is inefficient and prone to errors. This system aims to solve that by using a camera feed to automatically track traffic density, which can be useful for traffic signal management.
 
-Libraries: OpenCV, NumPy
+## Tech Stack
+* **Language:** Python 3
+* **Libraries:** * `opencv-python` (Computer Vision)
+    * `numpy` (Numerical operations)
 
-Algorithm: Gaussian Mixture-based Background/Foreground Segmentation (MOG2)
+## Algorithm Used
+The project relies on **Background Subtraction** to separate moving objects (cars) from the static background (road). 
+1.  **Background Subtraction (MOG2):** Uses a Gaussian Mixture-based algorithm to detect motion.
+2.  **Thresholding:** Removes shadows and grey noise.
+3.  **Morphological Dilation:** Fills gaps in the detected objects to make them solid.
+4.  **Contour Detection:** Identifies the boundaries of the vehicles to draw bounding boxes.
 
-Methodology
-Input: Video stream of a traffic junction.
+## File Structure
+* `main.py`: The core script containing the image processing logic.
+* `traffic_video.mp4`: Input video file for testing.
+* `output_processed.mp4`: The final output video with detection boxes.
+* `screenshots/`: Contains sample output images.
+* `screen_recordings/`: Contains a video demo of the project running.
 
-Preprocessing: Background subtraction is applied to isolate moving pixels from the static road.
+## How to Run
+1.  Clone this repository.
+2.  Install dependencies:
+    ```bash
+    pip install opencv-python numpy
+    ```
+3.  Run the script:
+    ```bash
+    python main.py
+    ```
+4.  The output video will be saved as `output_processed.mp4`.
 
-Noise Removal: Thresholding and Morphological Dilation are used to remove shadows and fill gaps in object detection.
-
-Detection: Contours are extracted from the mask. Bounding rectangles are drawn on valid objects (area > 800px).
-
-How to Run
-Open the project in Google Colab or a local Python environment.
-
-Ensure traffic_video.mp4 is in the directory.
-
-Run main.py.
+## Future Improvements
+* Add vehicle classification (Car vs Truck vs Bike).
+* Implement lane detection.
+* Connect to a live IP camera feed.
